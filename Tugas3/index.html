@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ignatius Global School (IGS) | Excellence in Education</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <nav id="navbar" class="bg-red-700 text-white fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center space-x-3">
+                    <img src="images/logo.png" alt="Logo IGS" class="w-12 h-12 bg-white rounded-full p-1 shadow-sm"
+                        onerror="this.src='https://via.placeholder.com/50?text=IGS'">
+                    <span class="font-bold text-xl tracking-wider hidden sm:block">IGNATIUS GLOBAL SCHOOL</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-6">
+                        <a href="#" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Beranda</a>
+                        <a href="#prestasi" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Prestasi</a>
+                        <a href="#galeri" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Galeri</a>
+                        <a href="#"
+                            class="bg-yellow-400 hover:bg-yellow-300 text-red-900 px-5 py-2 rounded-md text-sm font-bold transition shadow-md">Info
+                            PPDB</a>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-yellow-400 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-red-800">
+            <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-red-600">Beranda</a>
+            <a href="#prestasi" class="block px-4 py-2 text-sm text-white hover:bg-red-600">Prestasi</a>
+            <a href="#galeri" class="block px-4 py-2 text-sm text-white hover:bg-red-600">Galeri</a>
+            <a href="#" class="block px-4 py-2 text-sm text-yellow-400 font-bold hover:bg-red-600">Info PPDB</a>
+        </div>
+    </nav>
+
+    <header class="relative bg-gray-50 overflow-hidden mt-20">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative z-10 pb-8 bg-gray-50 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 mt-10">
+                <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 lg:px-8">
+                    <div class="sm:text-center lg:text-left">
+                        <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                            <span class="block">The First Choice,</span>
+                            <span class="block text-red-700">To The Best Future</span>
+                        </h1>
+                        <p
+                            class="mt-3 text-base text-gray-600 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                            Selamat datang di Ignatius Global School. Kami berkomitmen memberikan pendidikan bertaraf
+                            internasional dengan mengedepankan karakter, inovasi, dan prestasi.
+                        </p>
+                        <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                            <a href="#"
+                                class="w-full flex items-center justify-center px-8 py-3 text-base font-bold rounded-md text-red-900 bg-yellow-400 hover:bg-yellow-300 md:py-4 md:text-lg transition shadow-lg">
+                                Daftar Sekarang
+                            </a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+            <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="images/banner.png"
+                alt="Banner IGS"
+                onerror="this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1000&q=80'">
+        </div>
+    </header>
+
+    <section id="prestasi" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-red-800">Prestasi</h2>
+                <div class="w-24 h-1 bg-yellow-400 mx-auto mt-4 rounded"></div>
+                <p class="mt-4 text-gray-600">Pencapaian siswa siswi SMA Ignatius Global School begitu beragam. Mulai
+                    dari
+                    bidang akademik, olahraga, hingga seni dan budaya.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden card-hover border-b-4 border-red-700">
+                    <div class="aspect-[6/7] overflow-hidden">
+                        <img class="w-full h-full object-cover" src="images/Lomba_OSN.jpg" alt="Lomba OSN">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">Olimpiade Sains Nasional</h3>
+                        <p class="text-gray-500 text-sm mt-2"></p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden card-hover border-b-4 border-red-700">
+                    <div class="aspect-[6/7] overflow-hidden">
+                        <img class="w-full h-full object-cover" src="images/Lomba_Basket.jpg" alt="Lomba Basket">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">Kejuaraan Basket Tingkat Kota</h3>
+                        <p class="text-gray-500 text-sm mt-2"></p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden card-hover border-b-4 border-red-700">
+                    <div class="aspect-[6/7] overflow-hidden">
+                        <img class="w-full h-full object-cover" src="images/Lomba_Essai.jpg" alt="Lomba Essai">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">Nasional Essay Competition Chemistry Fair UI 2026
+                        </h3>
+                        <p class="text-gray-500 text-sm mt-2"></p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden card-hover border-b-4 border-red-700">
+                    <div class="aspect-[6/7] overflow-hidden">
+                        <img class="w-full h-full object-cover" src="images/Lomba_Jepang.jpg" alt="Lomba Jepang">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">Lomba Jepang Tingkat Nasional</h3>
+                        <p class="text-gray-500 text-sm mt-2"></p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden card-hover border-b-4 border-red-700">
+                    <div class="aspect-[6/7] overflow-hidden">
+                        <img class="w-full h-full object-cover" src="images/Lomba_Jerman.jpg" alt="Lomba Jerman">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">Olimpiade Bahasa Jerman Tingkat internasional</h3>
+                        <p class="text-gray-500 text-sm mt-2"></p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden card-hover border-b-4 border-red-700">
+                    <div class="aspect-[6/7] overflow-hidden">
+                        <img class="w-full h-full object-cover" src="images/Lombaa_DutaPariwisata.jpg"
+                            alt="Lomba Duta Pariwisata">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">Duta Pariwisata Sumatera Selatan</h3>
+                        <p class="text-gray-500 text-sm mt-2"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeri" class="py-16 bg-red-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-red-800">Galeri Kegiatan</h2>
+                <div class="w-24 h-1 bg-yellow-400 mx-auto mt-4 rounded"></div>
+                <p class="mt-4 text-gray-600">Kegiatan seru di lingkungan sekolah.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div
+                    class="rounded-lg overflow-hidden shadow-md card-hover bg-white border border-gray-200 relative group">
+                    <img class="w-full h-64 object-cover" src="images/Event_Classmeet.jpg" alt="Event Classmeet">
+                    <div
+                        class="absolute bottom-0 w-full bg-black bg-opacity-60 text-white p-3 transform translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <h4 class="font-bold">Event Classmeet</h4>
+                    </div>
+                </div>
+                <div
+                    class="rounded-lg overflow-hidden shadow-md card-hover bg-white border border-gray-200 relative group">
+                    <img class="w-full h-64 object-cover" src="images/Event_Bukber.jpg" alt="Event Bukber">
+                    <div
+                        class="absolute bottom-0 w-full bg-black bg-opacity-60 text-white p-3 transform translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <h4 class="font-bold">Event Bukber</h4>
+                    </div>
+                </div>
+                <div
+                    class="rounded-lg overflow-hidden shadow-md card-hover bg-white border border-gray-200 relative group">
+                    <img class="w-full h-64 object-cover" src="images/Berbagi_Ramadhan.jpg" alt="Berbagi Ramadhan">
+                    <div
+                        class="absolute bottom-0 w-full bg-black bg-opacity-60 text-white p-3 transform translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <h4 class="font-bold">Berbagi Ramadhan</h4>
+                    </div>
+                </div>
+                <div
+                    class="rounded-lg overflow-hidden shadow-md card-hover bg-white border border-gray-200 relative group">
+                    <img class="w-full h-64 object-cover" src="images/Berbagi_Natal.jpg" alt="Berbagi Natal">
+                    <div
+                        class="absolute bottom-0 w-full bg-black bg-opacity-60 text-white p-3 transform translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <h4 class="font-bold">Berbagi Natal</h4>
+                    </div>
+                </div>
+                <div
+                    class="rounded-lg overflow-hidden shadow-md card-hover bg-white border border-gray-200 relative group">
+                    <img class="w-full h-64 object-cover" src="images/Event_Ekaristi.jpg" alt="Event Ekaristi">
+                    <div
+                        class="absolute bottom-0 w-full bg-black bg-opacity-60 text-white p-3 transform translate-y-full group-hover:translate-y-0 transition duration-300">
+                        <h4 class="font-bold">Event Ekaristi</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-red-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h3 class="font-bold text-2xl mb-4 text-yellow-400">Ignatius Global School</h3>
+            <p class="text-red-100 text-sm mb-6">The First Choice To The Best Future </p>
+            <div class="flex justify-center space-x-4 mb-6">
+                <a href="https://www.instagram.com/ignatiusglobal.sch/?hl=en" target="_blank"
+                    class="text-white hover:text-yellow-400 transition">Instagram : @ignatiusglobal.sch</a>
+                <span>|</span>
+                <a href="https://www.ignatiusglobal.sch.id/" target="_blank"
+                    class="text-white hover:text-yellow-400 transition">Website Official IGS</a>
+            </div>
+            <p class="text-red-300 text-xs">&copy; 2026 Ignatius Global School. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
