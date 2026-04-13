@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crumb & Craft — Baking Course</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream: #FDF6EC;
+      --warm: #F5E6C8;
+      --toast: #C8936C;
+      --brown: #7A4A2E;
+      --dark: #2C1A0E;
+      --sage: #8EA882;
+      --sage-lt: #C5D9BF;
+      --accent: #D4813A;
+      --white: #FFFFFF;
+      --shadow: rgba(44, 26, 14, .12);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 5vw;
+      background: rgba(253, 246, 236, .88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200, 147, 108, .2);
+    }
+
+    .nav-logo {
+      font-family: 'Caveat', cursive;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--brown);
+      letter-spacing: .5px;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: .9rem;
+      font-weight: 500;
+      letter-spacing: .3px;
+      transition: color .25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 30px;
+      padding: .55rem 1.4rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .25s, transform .15s;
+    }
+
+    .nav-cta:hover {
+      background: var(--brown);
+      transform: translateY(-1px);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 2rem;
+      padding: 6rem 5vw 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 70% at 80% 40%, rgba(212, 129, 58, .12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(142, 168, 130, .15) 0%, transparent 60%);
+    }
+
+    /* Floating dough blobs */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      opacity: .35;
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .blob-1 {
+      width: 260px;
+      height: 260px;
+      background: var(--warm);
+      top: -60px;
+      right: 10%;
+      animation-delay: 0s;
+    }
+
+    .blob-2 {
+      width: 140px;
+      height: 140px;
+      background: var(--sage-lt);
+      bottom: 15%;
+      left: 3%;
+      animation-delay: 2s;
+    }
+
+    .blob-3 {
+      width: 90px;
+      height: 90px;
+      background: var(--toast);
+      top: 30%;
+      right: 3%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-18px) rotate(6deg);
+      }
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--sage-lt);
+      color: var(--brown);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: .35rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--dark);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title em {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #5a3d2b;
+      max-width: 480px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--brown);
+      color: var(--white);
+      padding: .85rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .25s, transform .15s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--brown);
+      padding: .85rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 2px solid var(--toast);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all .25s;
+    }
+
+    .btn-outline:hover {
+      background: var(--toast);
+      color: var(--white);
+    }
+
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-card-wrap {
+      position: relative;
+      width: min(420px, 90%);
+    }
+
+    .hero-card {
+      background: var(--white);
+      border-radius: 28px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 20px 60px var(--shadow), 0 4px 16px rgba(200, 147, 108, .15);
+      text-align: center;
+      animation: cardIn 1s cubic-bezier(.22, 1, .36, 1) both;
+    }
+
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px) rotate(-2deg);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+      }
+    }
+
+    .hero-emoji {
+      font-size: 5rem;
+      display: block;
+      margin-bottom: .8rem;
+    }
+
+    .hero-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--brown);
+      margin-bottom: .5rem;
+    }
+
+    .hero-card p {
+      color: #7a5c46;
+      font-size: .95rem;
+      line-height: 1.6;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      background: var(--cream);
+      border-radius: 14px;
+      padding: .75rem 1.2rem;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.3rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .stat span {
+      font-size: .78rem;
+      color: #7a5c46;
+    }
+
+    /* ── SECTION SHARED ── */
+    section {
+      padding: 5rem 5vw;
+    }
+
+    .section-tag {
+      font-family: 'Caveat', cursive;
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: .4rem;
+      display: block;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: #5a3d2b;
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 580px;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--warm);
+      border-radius: 40px;
+      margin: 0 2vw;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-features {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: .9rem;
+    }
+
+    .feat-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      box-shadow: 0 2px 10px var(--shadow);
+      transition: transform .2s;
+    }
+
+    .feat-item:hover {
+      transform: translateX(4px);
+    }
+
+    .feat-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .feat-item h4 {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--brown);
+      margin-bottom: .2rem;
+    }
+
+    .feat-item p {
+      font-size: .85rem;
+      color: #7a5c46;
+      line-height: 1.5;
+    }
+
+    .about-image-box {
+      background: var(--white);
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 16px 40px var(--shadow);
+      aspect-ratio: 4/5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      padding: 2rem;
+    }
+
+    .big-emoji {
+      font-size: 6rem;
+    }
+
+    .about-image-box p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--brown);
+      text-align: center;
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    .deco-stripe {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: repeating-linear-gradient(90deg, var(--accent) 0px, var(--accent) 16px, var(--toast) 16px, var(--toast) 32px, var(--sage) 32px, var(--sage) 48px);
+    }
+
+    /* ── COURSES ── */
+    #courses {
+      background: var(--cream);
+    }
+
+    .courses-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .course-card {
+      background: var(--white);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px var(--shadow);
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px var(--shadow);
+    }
+
+    .card-header {
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--bg, var(--warm));
+    }
+
+    .card-emoji {
+      font-size: 3.5rem;
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin-bottom: .5rem;
+    }
+
+    .card-level {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1;
+      background: rgba(255, 255, 255, .8);
+      color: var(--brown);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      padding: .25rem .7rem;
+      border-radius: 20px;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .card-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--dark);
+      margin-bottom: .5rem;
+    }
+
+    .card-body p {
+      font-size: .88rem;
+      color: #7a5c46;
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+
+    .card-meta {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.2rem;
+    }
+
+    .meta-tag {
+      background: var(--cream);
+      border-radius: 20px;
+      padding: .25rem .75rem;
+      font-size: .76rem;
+      color: var(--brown);
+      font-weight: 500;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--warm);
+      padding-top: 1rem;
+      margin-top: .5rem;
+    }
+
+    .price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .price span {
+      font-size: .8rem;
+      font-weight: 400;
+      color: #9a7a6a;
+    }
+
+    .enroll-btn {
+      background: var(--brown);
+      color: var(--white);
+      border: none;
+      border-radius: 20px;
+      padding: .5rem 1.1rem;
+      font-size: .85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    .enroll-btn:hover {
+      background: var(--accent);
+    }
+
+    /* ── HOW TO JOIN ── */
+    #join {
+      background: var(--dark);
+      border-radius: 40px;
+      margin: 0 2vw;
+      color: var(--white);
+    }
+
+    #join .section-title {
+      color: var(--white);
+    }
+
+    #join .section-sub {
+      color: #c9a98a;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .step-card {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      position: relative;
+      transition: background .25s;
+    }
+
+    .step-card:hover {
+      background: rgba(255, 255, 255, .1);
+    }
+
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: rgba(212, 129, 58, .3);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .step-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: .5rem;
+      color: var(--white);
+    }
+
+    .step-card p {
+      font-size: .88rem;
+      color: #c9a98a;
+      line-height: 1.6;
+    }
+
+    .step-icon {
+      font-size: 2rem;
+      margin-bottom: .8rem;
+      display: block;
+    }
+
+    .join-cta {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .price-card {
+      background: var(--white);
+      border-radius: 28px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 4px 20px var(--shadow);
+      position: relative;
+      transition: transform .25s;
+    }
+
+    .price-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .price-card.featured {
+      background: var(--brown);
+      color: var(--white);
+    }
+
+    .price-card.featured .price-desc,
+    .price-card.featured li {
+      color: #d4b89a !important;
+    }
+
+    .price-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: var(--white);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: .3rem .9rem;
+      border-radius: 20px;
+    }
+
+    .price-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: inherit;
+      margin-bottom: .5rem;
+    }
+
+    .price-card.featured .price-name {
+      color: var(--white);
+    }
+
+    .price-amount {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin: 1rem 0 .3rem;
+    }
+
+    .price-card.featured .price-amount {
+      color: var(--warm);
+    }
+
+    .price-desc {
+      color: #9a7a6a;
+      font-size: .85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .price-list {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 1.8rem;
+    }
+
+    .price-list li {
+      padding: .5rem 0;
+      font-size: .9rem;
+      color: #5a3d2b;
+      border-bottom: 1px solid var(--warm);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .price-card.featured .price-list li {
+      border-color: rgba(255, 255, 255, .15);
+    }
+
+    .check {
+      color: var(--sage);
+      font-weight: 700;
+    }
+
+    .price-btn {
+      width: 100%;
+      padding: .85rem;
+      border-radius: 30px;
+      border: 2px solid var(--brown);
+      background: transparent;
+      color: var(--brown);
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .price-btn:hover {
+      background: var(--brown);
+      color: var(--white);
+    }
+
+    .price-card.featured .price-btn {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--white);
+    }
+
+    .price-card.featured .price-btn:hover {
+      background: var(--warm);
+      color: var(--brown);
+    }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials {
+      background: var(--warm);
+      border-radius: 40px;
+      margin: 0 2vw;
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .testi-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 1.8rem;
+      box-shadow: 0 4px 16px var(--shadow);
+    }
+
+    .stars {
+      color: var(--accent);
+      font-size: 1.1rem;
+      margin-bottom: .8rem;
+    }
+
+    .testi-text {
+      font-size: .93rem;
+      line-height: 1.7;
+      color: #5a3d2b;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+    }
+
+    .author-av {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--warm);
+    }
+
+    .author-av span {
+      font-size: 1.4rem;
+    }
+
+    .author-name {
+      font-weight: 600;
+      font-size: .9rem;
+      color: var(--brown);
+    }
+
+    .author-role {
+      font-size: .78rem;
+      color: #9a7a6a;
+    }
+
+    /* ── FAQ ── */
+    #faq {
+      background: var(--cream);
+    }
+
+    .faq-list {
+      max-width: 720px;
+      margin: 3rem auto 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--warm);
+    }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 1.2rem 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-family: 'DM Sans', sans-serif;
+      transition: color .2s;
+    }
+
+    .faq-q:hover {
+      color: var(--accent);
+    }
+
+    .faq-arrow {
+      font-size: 1.1rem;
+      color: var(--accent);
+      transition: transform .3s;
+    }
+
+    .faq-q[aria-expanded="true"] .faq-arrow {
+      transform: rotate(180deg);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease, padding .4s;
+      font-size: .92rem;
+      color: #5a3d2b;
+      line-height: 1.7;
+    }
+
+    .faq-a.open {
+      max-height: 300px;
+      padding-bottom: 1.2rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: var(--cream);
+      padding: 4rem 5vw 2rem;
+      border-radius: 40px 40px 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand h2 {
+      font-family: 'Caveat', cursive;
+      font-size: 1.8rem;
+      color: var(--warm);
+      margin-bottom: .8rem;
+    }
+
+    .footer-brand p {
+      color: #9a7a6a;
+      font-size: .9rem;
+      line-height: 1.7;
+    }
+
+    .footer-col h4 {
+      color: var(--warm);
+      font-size: .9rem;
+      font-weight: 600;
+      letter-spacing: .5px;
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: .55rem;
+    }
+
+    .footer-col a {
+      color: #9a7a6a;
+      text-decoration: none;
+      font-size: .88rem;
+      transition: color .2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+
+    .footer-bottom p {
+      color: #7a5c46;
+      font-size: .82rem;
+    }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(44, 26, 14, .5);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--white);
+      border-radius: 28px;
+      padding: 2.5rem;
+      max-width: 480px;
+      width: 90%;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .3);
+      animation: modalIn .35s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    @keyframes modalIn {
+      from {
+        opacity: 0;
+        transform: scale(.9) translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .modal h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--brown);
+      margin-bottom: .5rem;
+    }
+
+    .modal p {
+      color: #7a5c46;
+      font-size: .9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-row {
+      margin-bottom: 1rem;
+    }
+
+    .form-row label {
+      display: block;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: .35rem;
+    }
+
+    .form-row input,
+    .form-row select {
+      width: 100%;
+      padding: .75rem 1rem;
+      border: 1.5px solid var(--warm);
+      border-radius: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      background: var(--cream);
+      color: var(--dark);
+      transition: border-color .2s;
+    }
+
+    .form-row input:focus,
+    .form-row select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .form-actions .btn-primary {
+      flex: 1;
+      text-align: center;
+      border: none;
+      padding: .85rem;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .btn-ghost {
+      background: none;
+      border: none;
+      color: #9a7a6a;
+      font-size: .9rem;
+      cursor: pointer;
+      padding: .85rem;
+    }
+
+    .btn-ghost:hover {
+      color: var(--brown);
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s, transform .7s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 7rem;
+      }
+
+      .hero-desc {
+        margin: 0 auto 2rem;
+      }
+
+      .hero-btns {
+        justify-content: center;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      #hero .hero-visual {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        display: none;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <body>
+
+    <!-- NAV -->
+    <nav>
+      <div class="nav-logo">Crumb <span>&</span> Craft</div>
+      <ul class="nav-links">
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#join">How to Join</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-bg"></div>
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+
+      <div class="hero-text">
+        <div class="hero-tag"> Lyne's Baking School</div>
+        <h1 class="hero-title">
+          Bake with <em>Confidence</em>,<br>Create with Joy
+        </h1>
+        <p class="hero-desc">
+          From fluffy sourdough to glossy croissants — our hands-on baking courses transform total beginners into
+          skilled
+          home bakers and aspiring professionals alike.
+        </p>
+        <div class="hero-btns">
+          <a href="#courses" class="btn-primary">Explore Courses</a>
+          <a href="#join" class="btn-outline">How It Works</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card-wrap">
+          <div class="hero-card">
+            <span class="hero-emoji">🍞</span>
+            <h3>Start Your Baking Journey</h3>
+            <p>Hands-on classes in a warm, welcoming studio — with premium ingredients, expert guidance, and everything
+              you take home.</p>
+            <div class="hero-stats">
+              <div class="stat"><strong>500+</strong><span>Graduates</span></div>
+              <div class="stat"><strong>6</strong><span>Courses</span></div>
+              <div class="stat"><strong>4.9★</strong><span>Rating</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COURSES -->
+    <section id="courses">
+      <div class="courses-header">
+        <div>
+          <span class="section-tag">~ What We Offer</span>
+          <h2 class="section-title">Pick Your Course</h2>
+        </div>
+      </div>
+      <div class="courses-grid">
+
+        <div class="course-card reveal">
+          <div class="card-header" style="--bg: #FDF0E0;">
+            <span class="card-emoji">🍞</span>
+            <div class="card-level">Beginner</div>
+          </div>
+          <div class="card-body">
+            <h3>Bread Basics</h3>
+            <p>Start from scratch — learn how yeast works, how to knead, shape, and proof your first perfect loaf.</p>
+            <div class="card-meta">
+              <span class="meta-tag">📅 Weekend</span>
+              <span class="meta-tag">⏱ 4 hrs</span>
+              <span class="meta-tag">👥 Max 10</span>
+            </div>
+            <div class="card-footer">
+              <div class="price">Rp 350K <span>/ session</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card reveal">
+          <div class="card-header" style="--bg: #F5ECD7;">
+            <span class="card-emoji">🥐</span>
+            <div class="card-level">Intermediate</div>
+          </div>
+          <div class="card-body">
+            <h3>Croissant Masterclass</h3>
+            <p>Laminated dough, perfect layers, golden butter croissants, the baking goal everyone has. Let's conquer
+              it
+              together.</p>
+            <div class="card-meta">
+              <span class="meta-tag">📅 Sat–Sun</span>
+              <span class="meta-tag">⏱ 6 hrs</span>
+              <span class="meta-tag">👥 Max 8</span>
+            </div>
+            <div class="card-footer">
+              <div class="price">Rp 550K <span>/ session</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card reveal">
+          <div class="card-header" style="--bg: #EEF3EC;">
+            <span class="card-emoji">🎂</span>
+            <div class="card-level">Beginner</div>
+          </div>
+          <div class="card-body">
+            <h3>Cake Decorating 101</h3>
+            <p>Learn buttercream techniques, piping, fondant basics, and how to assemble a beautiful layered cake.</p>
+            <div class="card-meta">
+              <span class="meta-tag">📅 Flexible</span>
+              <span class="meta-tag">⏱ 5 hrs</span>
+              <span class="meta-tag">👥 Max 10</span>
+            </div>
+            <div class="card-footer">
+              <div class="price">Rp 420K <span>/ session</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card reveal">
+          <div class="card-header" style="--bg: #FAE8DA;">
+            <span class="card-emoji">🍰</span>
+            <div class="card-level">Advanced</div>
+          </div>
+          <div class="card-body">
+            <h3>French Pastry Intensive</h3>
+            <p>Eclairs, tarts, mille-feuille — a deep dive into classic French pâtisserie techniques over 4 sessions.
+            </p>
+            <div class="card-meta">
+              <span class="meta-tag">📅 4 weeks</span>
+              <span class="meta-tag">⏱ 5 hrs/session</span>
+              <span class="meta-tag">👥 Max 6</span>
+            </div>
+            <div class="card-footer">
+              <div class="price">Rp 1.8jt <span>/ program</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card reveal">
+          <div class="card-header" style="--bg: #F9F3E8;">
+            <span class="card-emoji">🍪</span>
+            <div class="card-level">Beginner</div>
+          </div>
+          <div class="card-body">
+            <h3>Cookie Workshop</h3>
+            <p>Soft, chewy, crispy — master three textures, flavour variations, and royal icing decoration.</p>
+            <div class="card-meta">
+              <span class="meta-tag">📅 Weekdays</span>
+              <span class="meta-tag">⏱ 3 hrs</span>
+              <span class="meta-tag">👥 Max 12</span>
+            </div>
+            <div class="card-footer">
+              <div class="price">Rp 275K <span>/ session</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card reveal">
+          <div class="card-header" style="--bg: #F0EAF8;">
+            <span class="card-emoji">🍕</span>
+            <div class="card-level">Intermediate</div>
+          </div>
+          <div class="card-body">
+            <h3>Sourdough Deep Dive</h3>
+            <p>Build your starter, understand fermentation, and master open-crumb sourdough scoring and baking.</p>
+            <div class="card-meta">
+              <span class="meta-tag">📅 2 sessions</span>
+              <span class="meta-tag">⏱ 5 hrs each</span>
+              <span class="meta-tag">👥 Max 8</span>
+            </div>
+            <div class="card-footer">
+              <div class="price">Rp 750K <span>/ program</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HOW TO JOIN -->
+    <section id="join">
+      <span class="section-tag" style="color:#C8936C;">~ It's Super Easy</span>
+      <h2 class="section-title">How to Join a Class</h2>
+      <p class="section-sub">Getting started takes less than 5 minutes. Here's all you need to do:</p>
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <div class="step-num">01</div>
+          <span class="step-icon">🔍</span>
+          <h3>Browse & Pick a Course</h3>
+          <p>Choose the class that suits your level and schedule. We offer weekday, weekend, and evening options.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-num">02</div>
+          <span class="step-icon">📝</span>
+          <h3>Fill in the Form</h3>
+          <p>Click "Enroll Now", fill in your name, contact, and which course you'd like to join.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-num">03</div>
+          <span class="step-icon">💳</span>
+          <h3>Complete Payment</h3>
+          <p>Pay via bank transfer or e-wallet. Your spot is confirmed once payment is received.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-num">04</div>
+          <span class="step-icon">📩</span>
+          <h3>Get Your Confirmation</h3>
+          <p>Receive a WhatsApp confirmation with class details, address, and what to bring (just yourself!).</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-num">05</div>
+          <span class="step-icon">🧑‍🍳</span>
+          <h3>Show Up & Bake!</h3>
+          <p>Arrive 10 minutes early, put on your apron, and get ready for the most delicious class of your life.</p>
+        </div>
+      </div>
+      <div class="join-cta">
+        <button class="btn-primary" onclick="openModal()"
+          style="background:var(--accent); font-size:1.05rem; padding:1rem 2.5rem;">
+          Reserve My Spot
+        </button>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <span class="section-tag">~ Happy Bakers</span>
+      <h2 class="section-title">What Our Students Say</h2>
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"I came in with zero baking experience and left with the most beautiful croissants I've
+            ever seen. The instructor made everything feel so achievable!"</p>
+          <div class="testi-author">
+            <div class="author-av"><span>🙋‍♀️</span></div>
+            <div>
+              <div class="author-name">Anisa R.</div>
+              <div class="author-role">Croissant Masterclass grad</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"The studio is so cozy and well-equipped. I've been to three different classes now and
+            each one has been better than the last. My sourdough starter is still alive and thriving!"</p>
+          <div class="testi-author">
+            <div class="author-av"><span>🧑‍🍳</span></div>
+            <div>
+              <div class="author-name">Budi S.</div>
+              <div class="author-role">Sourdough Deep Dive alumni</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"I took my daughter here for her birthday and we had the best time. It's not too girly
+            and
+            not too serious — just the right vibe. We'll definitely be back!"</p>
+          <div class="testi-author">
+            <div class="author-av"><span>👩‍👧</span></div>
+            <div>
+              <div class="author-name">Maya &amp; Dinda</div>
+              <div class="author-role">Cookie Workshop</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>Crumb & Craft 🥐</h2>
+          <p>A cozy baking studio for curious hands and hungry hearts. We believe everyone deserves to experience the
+            joy
+            of making something delicious from scratch.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Courses</h4>
+          <ul>
+            <li><a href="#courses">Bread Basics</a></li>
+            <li><a href="#courses">Croissant Masterclass</a></li>
+            <li><a href="#courses">Cake Decorating</a></li>
+            <li><a href="#courses">French Pastry</a></li>
+            <li><a href="#courses">Cookie Workshop</a></li>
+            <li><a href="#courses">Sourdough</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Info</h4>
+          <ul>
+            <li><a href="#join">How to Join</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#">Private Events</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="#">📱 +628153274205</a></li>
+            <li><a href="#">📸 @crumbncraft_class</a></li>
+            <li><a href="#">📧 lynebaking@gmail.com</a></li>
+            <li><a href="#">📍 crumb and craft</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Crumb & Craft. All rights reserved.</p>
+        <p>Made with 🧡</p>
+      </div>
+    </footer>
+
+    <script>
+
+      // FAQ accordion
+      function toggleFaq(btn) {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        document.querySelectorAll('.faq-q').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          b.nextElementSibling.classList.remove('open');
+        });
+        if (!isOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          btn.nextElementSibling.classList.add('open');
+        }
+      }
+
+      // Scroll reveal
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('visible'), i * 80);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      reveals.forEach(el => observer.observe(el));
+    </script>
+  </body>
+
+</html>
