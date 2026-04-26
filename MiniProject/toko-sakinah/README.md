@@ -1,12 +1,12 @@
-# 🛍️ Toko Sakinah — Website E-Commerce
+# Toko Sakinah — Website E-Commerce
 
 Website e-commerce untuk **Toko Sakinah**, toko yang menyediakan baju sekolah dan oleh-oleh haji di Palembang, Sumatera Selatan.
 
 ## 📸 Preview
 
-![Homepage](docs/preview-homepage.png)
+![Homepage](data/preview-homepage.png)
 
-## 🎯 Fitur Utama
+## Fitur Utama
 
 - **Katalog Produk** — 26 produk dalam 2 kategori (Baju Sekolah & Oleh-Oleh Haji) dengan variasi ukuran, warna, dan gender
 - **Filter & Sorting** — Filter berdasarkan subkategori, ukuran, rentang harga, dan rating. Sorting berdasarkan harga, rating, terlaris, dan terbaru
@@ -19,7 +19,7 @@ Website e-commerce untuk **Toko Sakinah**, toko yang menyediakan baju sekolah da
 - **Responsif** — Desain adaptif untuk desktop, tablet, dan mobile
 - **Profil Toko** — Informasi toko, jam operasional, cara pemesanan, dan metode pembayaran
 
-## 🛠️ Teknologi
+## Teknologi
 
 | Teknologi | Keterangan |
 |-----------|------------|
@@ -30,7 +30,7 @@ Website e-commerce untuk **Toko Sakinah**, toko yang menyediakan baju sekolah da
 | Google Fonts | Font Inter untuk tipografi modern |
 | LocalStorage | Menyimpan data keranjang belanja di browser |
 
-## 📁 Struktur Proyek
+## Struktur Proyek
 
 ```
 toko-sakinah/
@@ -43,12 +43,11 @@ toko-sakinah/
 │   ├── oleh-oleh-haji/     # Gambar produk oleh-oleh haji
 │   └── baju-sekolah/       # Gambar produk baju sekolah
 ├── css/
-│   └── style.css           # Stylesheet tambahan (opsional)
-├── docs/                   # Dokumentasi dan preview
+│   └── style.css           # Stylesheet tambahan 
 └── README.md               # File ini
 ```
 
-## 🚀 Cara Menjalankan
+## Cara Menjalankan
 
 1. **Clone repository**
    ```bash
@@ -61,9 +60,9 @@ toko-sakinah/
    - Install extension **Live Server**
    - Klik kanan `index.html` → **Open with Live Server**
 
-   > ⚠️ File harus dibuka melalui server (localhost) agar `fetch()` untuk memuat `products.json` berfungsi. Buka langsung via `file://` tidak akan berfungsi karena kebijakan CORS pada browser.
+   > File harus dibuka melalui server (localhost) agar `fetch()` untuk memuat `products.json` berfungsi. Buka langsung via `file://` tidak akan berfungsi karena kebijakan CORS pada browser.
 
-3. **Atau gunakan HTTP server sederhana**
+3. **Atau gunakan HTTP server**
    ```bash
    # Dengan Python
    python3 -m http.server 8000
@@ -74,7 +73,7 @@ toko-sakinah/
 
 4. Buka `http://localhost:8000` di browser
 
-## 📦 Mengelola Produk
+## Mengelola Produk
 
 Semua data produk disimpan di `data/products.json`. Untuk menambah, mengubah, atau menghapus produk, cukup edit file JSON tersebut.
 
@@ -116,7 +115,7 @@ Semua data produk disimpan di `data/products.json`. Untuk menambah, mengubah, at
 | `description` | string | Deskripsi produk |
 | `badge` | string | Badge di card (opsional: `"Terlaris"` / `"Baru"`) |
 
-## 👤 Informasi Toko
+## Informasi Toko
 
 | | |
 |---|---|
@@ -131,5 +130,3 @@ Semua data produk disimpan di `data/products.json`. Untuk menambah, mengubah, at
 Proyek ini dibuat untuk keperluan tugas Mini Project mata kuliah Pemrograman Web.
 
 ---
-
-*Dibuat dengan ❤️ untuk Toko Sakinah, Palembang*
