@@ -2,7 +2,7 @@
 
 Website e-commerce untuk **Toko Sakinah**, toko yang menyediakan baju sekolah dan oleh-oleh haji di Palembang, Sumatera Selatan.
 
-## 📸 Preview
+## Preview
 
 ![Homepage](data/preview-homepage.png)
 
@@ -125,7 +125,7 @@ Semua data produk disimpan di `data/products.json`. Untuk menambah, mengubah, at
 | **Instagram** | @toko.sakinah |
 | **Email** | konpeksisakinah@gmail.com |
 
-## 📄 Lisensi
+## Lisensi
 
 Proyek ini dibuat untuk keperluan tugas Mini Project mata kuliah Pemrograman Web.
 

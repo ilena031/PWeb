@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    /* warna dan variabel utama website */
     :root {
       --bg: #FFFFFF;
       --bg-gray: #F5F5F5;
@@ -21,9 +22,11 @@
       --border: #E5E5E5;
       --border-dark: #D0D0D0;
       --accent: #C8102E;
+      /* warna merah utama */
       --accent-hover: #A50D24;
       --accent-light: #FFF0F0;
       --gold: #F5A623;
+      /* warna bintang rating */
       --green: #2E8B57;
       --shadow-sm: 0 1px 3px rgba(0, 0, 0, .06);
       --shadow-md: 0 4px 12px rgba(0, 0, 0, .08);
@@ -33,6 +36,7 @@
       --trans: .2s ease;
     }
 
+    /* reset bawaan browser */
     *,
     *::before,
     *::after {
@@ -50,6 +54,8 @@
       background: var(--bg);
       color: var(--text-primary);
       line-height: 1.6;
+      /* font-size: 16px; */
+      /* udah default jadi gaperlu */
     }
 
     a {
@@ -73,6 +79,7 @@
       list-style: none;
     }
 
+    /* custom scrollbar biar lebih rapi */
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -86,7 +93,7 @@
       border-radius: 3px;
     }
 
-    /* === TOP BAR === */
+    /* bar atas (tulisan selamat datang) */
     .top-bar {
       background: var(--text-primary);
       color: #fff;
@@ -102,7 +109,7 @@
       text-decoration: underline;
     }
 
-    /* === NAVBAR === */
+    /* navbar utama (logo, search, menu) */
     .navbar {
       position: sticky;
       top: 0;
@@ -241,7 +248,7 @@
       position: relative;
     }
 
-    /* === CATEGORY NAV === */
+    /* navigasi kategori (semua / baju sekolah / oleh2 haji) */
     .cat-nav {
       background: var(--bg);
       border-bottom: 1px solid var(--border);
@@ -277,7 +284,7 @@
       border-bottom-color: var(--accent);
     }
 
-    /* === MAIN LAYOUT === */
+    /* layout utama (sidebar + konten produk) */
     .container {
       max-width: 1320px;
       margin: 0 auto;
@@ -292,7 +299,7 @@
       overflow: hidden;
     }
 
-    /* === SIDEBAR FILTERS === */
+    /* sidebar filter di sebelah kiri */
     .sidebar {
       padding: 24px 24px 24px 0;
       border-right: 1px solid var(--border);
@@ -413,7 +420,7 @@
       font-size: .8rem;
     }
 
-    /* === PRODUCT CONTENT === */
+    /* bagian konten produk di sebelah kanan */
     .product-content {
       padding: 24px 0 60px 32px;
       min-width: 0;
@@ -469,14 +476,14 @@
       border-color: var(--text-primary);
     }
 
-    /* === PRODUCT GRID === */
+    /* grid buat nampilin kartu produk */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 16px;
     }
 
-    /* === PRODUCT CARD === */
+    /* kartu produk */
     .product-card {
       background: var(--bg);
       border-radius: var(--radius);
@@ -609,7 +616,7 @@
       border: 1.5px solid var(--border);
     }
 
-    /* === EMPTY STATE === */
+    /* tampilan kalo gaada produk */
     .empty-state {
       text-align: center;
       padding: 80px 24px;
@@ -627,7 +634,7 @@
       color: var(--text-muted);
     }
 
-    /* === MODAL === */
+    /* modal / popup detail produk */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -900,7 +907,7 @@
       background: var(--bg-gray);
     }
 
-    /* === SLIDESHOW === */
+    /* slideshow gambar di modal */
     .modal-slideshow {
       position: relative;
       width: 100%;
@@ -981,7 +988,7 @@
       transform: scale(1.3);
     }
 
-    /* === CART SIDEBAR === */
+    /* sidebar keranjang belanja (muncul dari kanan) */
     .cart-overlay {
       position: fixed;
       inset: 0;
@@ -1132,7 +1139,7 @@
       background: #333;
     }
 
-    /* === TOAST === */
+    /* notifikasi toast (muncul di bawah) */
     .toast-wrap {
       position: fixed;
       bottom: 24px;
@@ -1178,7 +1185,7 @@
       }
     }
 
-    /* === PROFILE PAGE === */
+    /* halaman profil toko */
     .page {
       display: none;
     }
@@ -1264,7 +1271,7 @@
       color: var(--text-primary);
     }
 
-    /* === FOOTER === */
+    /* footer / bagian paling bawah */
     footer {
       background: var(--text-primary);
       color: rgba(255, 255, 255, .7);
@@ -1333,7 +1340,7 @@
       text-align: center;
     }
 
-    /* === MOBILE FILTER TOGGLE === */
+    /* tombol filter buat tampilan hp */
     .mobile-filter-toggle {
       display: none;
       padding: 10px 16px;
@@ -1352,7 +1359,7 @@
       height: 16px;
     }
 
-    /* === RESPONSIVE === */
+    /* responsive - biar keliatan bagus di hp dan tablet */
     @media (max-width: 1024px) {
       .product-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -1514,7 +1521,7 @@
     </div>
   </nav>
 
-  <!-- ===== HOME PAGE ===== -->
+  <!-- HOME PAGE -->
   <div class="page active" id="page-home">
 
     <!-- CATEGORY NAV -->
@@ -1608,7 +1615,7 @@
     <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
   </div>
 
-  <!-- ===== PROFILE PAGE ===== -->
+  <!-- PROFILE PAGE -->
   <div class="page" id="page-profile">
     <div class="container">
       <section class="profile-section">
@@ -1702,7 +1709,7 @@
     </div>
   </div>
 
-  <!-- ===== MODAL ===== -->
+  <!-- MODAL -->
   <div class="modal-overlay" id="modal-overlay">
     <div class="modal">
       <button class="modal-close" id="modal-close">&#10005;</button>
@@ -1739,7 +1746,7 @@
     </div>
   </div>
 
-  <!-- ===== CART SIDEBAR ===== -->
+  <!-- CART SIDEBAR -->
   <div class="cart-overlay" id="cart-overlay">
     <div class="cart-sidebar">
       <div class="cart-head">
