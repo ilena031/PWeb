@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrasi & Pencarian Kode Pos</title>
+    <meta name="description"
+        content="Form registrasi dengan validasi khusus dan pencarian kode pos otomatis seluruh Indonesia." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Header -->
+        <header class="header">
+            <h1> Form Registrasi & Kode Pos</h1>
+        </header>
+
+        <!-- Tab Navigation -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" id="tabBtnRegister" onclick="switchTab('register')">
+                <span class="tab-icon"></span> Form Registrasi
+            </button>
+            <button class="tab-btn" id="tabBtnPostal" onclick="switchTab('postal')">
+                <span class="tab-icon"></span> Pencarian Kode Pos
+            </button>
+        </nav>
+
+        <!-- Tab Content: Registration -->
+        <section class="tab-content active" id="tabRegister">
+            <div class="card">
+                <h2>Daftar Akun Baru</h2>
+                <p class="card-desc">Isi data diri Anda dengan lengkap dan benar.</p>
+                <form id="registrationForm" novalidate>
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="fullName">Nama Lengkap</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Masukkan nama lengkap"
+                                required />
+                            <span class="error-message" id="errFullName"></span>
+                        </div>
+                        <div class="field">
+                            <label for="email">Alamat Email</label>
+                            <input type="email" id="email" name="email" placeholder="contoh@email.com" required />
+                            <span class="error-message" id="errEmail"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="phone">Nomor Telepon</label>
+                            <input type="tel" id="phone" name="phone" placeholder="08xxxxxxxxxx" required />
+                            <span class="error-message" id="errPhone"></span>
+                        </div>
+                        <div class="field">
+                            <label for="gender">Jenis Kelamin</label>
+                            <select id="gender" name="gender" required>
+                                <option value="" disabled selected>Pilih jenis kelamin</option>
+                                <option value="Laki-laki">Laki-laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                            <span class="error-message" id="errGender"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="password">Kata Sandi</label>
+                            <input type="password" id="password" name="password" placeholder="Min. 8 karakter" required
+                                minlength="8" />
+                            <span class="error-message" id="errPassword"></span>
+                        </div>
+                        <div class="field">
+                            <label for="confirmPassword">Konfirmasi Kata Sandi</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword"
+                                placeholder="Ulangi kata sandi" required />
+                            <span class="error-message" id="errConfirmPassword"></span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">Daftar Sekarang</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Tab Content: Postal Code -->
+        <section class="tab-content" id="tabPostal">
+            <div class="card">
+                <h2>Cari Kode Pos</h2>
+                <p class="card-desc">Pilih provinsi dan kota, lalu masukkan nama jalan untuk mencari kode pos.</p>
+                <form id="postalForm" novalidate>
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="province">Provinsi</label>
+                            <select id="province" name="province" required>
+                                <option value="" disabled selected>-- Pilih Provinsi --</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="city">Kota / Kabupaten</label>
+                            <select id="city" name="city" required disabled>
+                                <option value="" disabled selected>-- Pilih Kota --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="district">Kecamatan</label>
+                        <select id="district" name="district" required disabled>
+                            <option value="" disabled selected>-- Pilih Kecamatan --</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary">Cari Kode Pos</button>
+                </form>
+                <div id="postalResult" class="result hidden"></div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 Tugas PWEB</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

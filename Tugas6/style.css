@@ -1,0 +1,330 @@
+/* ===== LIGHT BROWN-WHITE MINIMALIST THEME ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --brown-900: #3E2723;
+  --brown-800: #4E342E;
+  --brown-700: #5D4037;
+  --brown-600: #6D4C41;
+  --brown-500: #795548;
+  --brown-400: #8D6E63;
+  --brown-300: #A1887F;
+  --brown-200: #BCAAA4;
+  --brown-100: #D7CCC8;
+  --brown-50:  #EFEBE9;
+
+  --white: #FFFFFF;
+  --cream: #FFF8F0;
+  --cream-dark: #F5EDE3;
+  --text-primary: #3E2723;
+  --text-secondary: #6D4C41;
+  --text-muted: #8D6E63;
+  --border: #D7CCC8;
+  --error: #C62828;
+  --success: #2E7D32;
+  --font: 'Inter', -apple-system, sans-serif;
+  --shadow-sm: 0 1px 3px rgba(62, 39, 35, 0.08);
+  --shadow-md: 0 4px 16px rgba(62, 39, 35, 0.1);
+  --shadow-lg: 0 8px 32px rgba(62, 39, 35, 0.12);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--cream);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ===== WRAPPER ===== */
+.wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+/* ===== HEADER ===== */
+.header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--brown-700);
+  margin-bottom: 0.25rem;
+}
+
+.header p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ===== TAB NAV ===== */
+.tab-nav {
+  display: flex;
+  gap: 0;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 0.85rem 1rem;
+  border: none;
+  background: transparent;
+  font-family: var(--font);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 3px;
+  background: var(--brown-500);
+  border-radius: 3px 3px 0 0;
+  transition: transform 0.25s ease;
+}
+
+.tab-btn:hover {
+  color: var(--brown-600);
+  background: var(--brown-50);
+}
+
+.tab-btn.active {
+  color: var(--brown-700);
+  background: var(--brown-50);
+}
+
+.tab-btn.active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.tab-icon {
+  font-size: 1.1rem;
+}
+
+/* ===== TAB CONTENT ===== */
+.tab-content {
+  display: none;
+  animation: fadeIn 0.35s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== CARD ===== */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+
+.card h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--brown-700);
+  margin-bottom: 0.25rem;
+}
+
+.card-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* ===== FORM ===== */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.field {
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--cream);
+  color: var(--text-primary);
+  font-family: var(--font);
+  font-size: 0.92rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236D4C41' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  padding-right: 2.5rem;
+}
+
+select:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+input::placeholder {
+  color: var(--brown-300);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--brown-400);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(121, 85, 72, 0.12);
+}
+
+.error-message {
+  display: block;
+  color: var(--error);
+  font-size: 0.78rem;
+  margin-top: 0.3rem;
+  min-height: 1rem;
+}
+
+/* ===== BUTTON ===== */
+.btn-primary {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  background: var(--brown-600);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+}
+
+.btn-primary:hover {
+  background: var(--brown-500);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(121, 85, 72, 0.25);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* ===== RESULT BOX ===== */
+.result {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: var(--brown-50);
+  border: 1.5px solid var(--brown-200);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--brown-700);
+}
+
+.result.hidden {
+  display: none;
+}
+
+.result.error {
+  background: #FFEBEE;
+  border-color: #EF9A9A;
+  color: var(--error);
+}
+
+.result .postcode-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--brown-700);
+  margin-top: 0.35rem;
+  letter-spacing: 4px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 1.25rem 1rem 2rem;
+  }
+
+  .header h1 {
+    font-size: 1.35rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .tab-btn {
+    font-size: 0.85rem;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .tab-icon {
+    display: none;
+  }
+}
